@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model RohiniTravels.Web.Models.Student
+<script>
+    var SaveReg_URL = '@Url.Action("SaveRegData", "Registration")';
+       
+    var GetServies_URL = '@Url.Action("getServiesData", "Registration")';
+</script>
+<script src="~/Scripts/Client/Registration.js"></script>
+          
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        Registration
+    </div>
+    <div class="row">
+        <fieldset>
+            <legend>Student Details:</legend>
+            <div class="row">
+                <div class="col-md-4">
+                    <lable>First Name</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.FirstName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <lable>Middle Name</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.MiddleName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <lable>Last Name</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.LastName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <lable>Gender</lable>
+                    @Html.RadioButtonFor(model => model.PropStudentDetails.Gender, "M")Male
+                    @Html.RadioButtonFor(model => model.PropStudentDetails.Gender, "F")Female
+
+                </div>
+                <div class="col-md-4">
+                    <lable>DOB</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.DOB, new { @class = "form-control",@type="date"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <lable>Standared</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.Standared, new { @class = "form-control" })
+                </div>
+            </div>
+</fieldset>
+
+        <fieldset>
+            <legend>Parents Details:</legend>
+            <div class="row">
+                <div class="col-md-4">
+                    <lable>Name</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.ParentName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <lable>MOB</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.ParentMobile, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <lable>Other No.</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.ParentOtherNo, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <lable>Email</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.ParentEmail, new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-4">
+                    <lable>Address</lable>
+                    @Html.TextAreaFor(model => model.PropStudentDetails.Address, new { @class = "form-control", Type = "date" })
+                </div>
+                <div class="col-md-4">
+                    <lable>Pincode</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.Pincode, new { @class = "form-control" })
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend></legend>
+            <div class="row">
+                <div class="col-md-4">
+                    <lable>Username</lable>
+                    @Html.TextBoxFor(model => model.PropStudentDetails.LoginID, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <lable>Password</lable>
+                    @Html.PasswordFor(model => model.PropStudentDetails.Password, new { @class = "form-control" })
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Services Details:</legend>
+            <div class="row">
+               <input type="checkbox" name="chkType" id="chkSchool" value="School" onclick="handleClick(this);">School
+               <input type="checkbox" name="chkType" id="chkClass" value="Class" onclick="handleClick(this);">Class
+               
+            </div>
+            <div class="row">
+                <table border="1" style="width:100%" id="BindServicesDetails">
+                    <tbody>
+                        <tr>
+                            <th>Service Type</th>
+                            <th>Service</th>
+                            <th>Service Start Date</th>
+                            <th>Service End Date</th>
+                            <th>Pickup Location</th>
+                            <th>Pickup Time</th>
+                            <th>Drop Location</th>
+                            <th>Drop Time</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>    
+</fieldset>
+        <div class="row">
+            <input type="button" id="btnSave" value="Save">
+        </div>
+        </div>
+        <script>
+
+            function handleClick(chkId) {
+                debugger;
+                var ServicesText, ServicesTyp, chkname;
+
+                if (chkId.id == "chkSchool") {
+                   // ServicesTyp = 'S';
+                    ServicesText = 'SCHOOL';
+                    Chkname = 'chkSchool';
+                  
+                }
+                else {
+                   // ServicesTyp = 'C';
+                    ServicesText = 'CLASS';
+                    Chkname = 'chkClass';
+                }
+                if ($('#' + Chkname + '').is(':checked')) {
+                    // alert('aarti');
+                    var table = document.getElementById('BindServicesDetails');
+                    rowCount = table.rows.length;
+
+                    var colCount = table.rows[0].cells.length;
+                    for (var i = 0; i < rowCount; i++) {
+                        row = table.insertRow(1);
+                    }
+                    for (var i = 0; i < colCount; i++) {
+
+                        var newcell = row.insertCell(i);
+                        if (table.rows[0].cells[i].innerHTML == "Service Type") {
+                            newcell.innerHTML = '<td><lable>' + ServicesText + '</lable></td>';
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Service") {
+                            //  BindMakeDropDown(ServicesTyp);
+                            newcell.innerHTML = '<td><select id="' + ServicesText + '" Onclick="' + BindServices(ServicesText) + '""><option>Select Services</option></select></td>';
+
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Service Start Date") {
+                            newcell.innerHTML = '<td><input type="date"  id="ServiceStartDate_' + i + '"></td>';
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Service End Date") {
+                            newcell.innerHTML = '<td><input type="date"  id="ServiceEndDate_' + i + '"></td>';
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Pickup Location") {
+                            newcell.innerHTML = '<td><input type="text"  id="PicLoc_' + i + '"></td>';
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Pickup Time") {
+                            newcell.innerHTML = '<td><input type="text"  id="PicTime_' + i + '"></td>';
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Drop Location") {
+                            newcell.innerHTML = '<td><input type="text"  id="DropLoc_' + i + '"></td>';
+                        }
+                        if (table.rows[0].cells[i].innerHTML == "Drop Time") {
+                            newcell.innerHTML = '<td><input type="text"  id="DropTime_' + i + '"></td>';
+                        }
+                    }
+
+                } else {
+
+                    
+                    DeleteRow(ServicesText);
+                }
+
+                
+
+
+            }
+
+            function BindServices(type) {
+                debugger;
+                var Data = {
+                    SDType: type
+                }
+                var requiredFields = { 'url': GetServies_URL, 'data': Data, 'successFunction': fnRegResponse, 'errorFunction': Error };
+                WebxCommonFN.AjaxPostRequestError(requiredFields);
+            }
+
+
+            function DeleteRow(RowId) {
+                debugger;
+
+                //var row = RowId.parentNode.parentNode;
+                //var table = row.parentNode;
+                //table.removeChild(row);
+
+                $('#RowId').remove();
+                return false;
+
+            }
+        </script>
+}
+
+
+
+
+
+

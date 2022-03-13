@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "AcceptRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AcceptRequest</h2>
+
+<script type="text/javascript">
+
+    var getGridData_URL = '@Url.Action("GetPenStudRegData", "Admin")';
+
+</script>
+<script src="~/Scripts/Admin/AcceptRequest.js"></script>
+<table id="grid"></table>
+
+@*<script type="text/javascript">
+
+
+        var products = [
+            { "ProductID": 1, "Name": "Adjustable Race", "ProductNumber": "AR-5381", "Category": { "ID": 0, "Name": "Food", "Active": true, "Date": "\/Date(1059660800000)\/" } },
+            { "ProductID": 2, "Name": "Bearing Ball", "ProductNumber": "BA-8327", "Category": { "ID": 1, "Name": "Beverages", "Active": true, "Date": "\/Date(1159660800000)\/" } },
+            { "ProductID": 3, "Name": "BB Ball Bearing", "ProductNumber": "BE-2349", "Category": { "ID": 1, "Name": "Beverages", "Active": true, "Date": "\/Date(1259660800000)\/" } },
+            { "ProductID": 4, "Name": "Headset Ball Bearings", "ProductNumber": "BE-2908", "Category": { "ID": 1, "Name": "Beverages", "Active": true, "Date": "\/Date(1359660800000)\/" } },
+            { "ProductID": 316, "Name": "Blade", "ProductNumber": "BL-2036", "Category": { "ID": 1, "Name": "Beverages", "Active": false, "Date": "\/Date(1459660800000)\/" } },
+            { "ProductID": 317, "Name": "LL Crankarm", "ProductNumber": "CA-5965", "Category": { "ID": 1, "Name": "Beverages", "Active": false, "Date": "\/Date(1559660800000)\/" } },
+            { "ProductID": 318, "Name": "ML Crankarm", "ProductNumber": "CA-6738", "Category": { "ID": 1, "Name": "Beverages", "Active": false, "Date": "\/Date(1659660800000)\/" } },
+            { "ProductID": 319, "Name": "HL Crankarm", "ProductNumber": "CA-7457", "Category": { "ID": 2, "Name": "Electronics", "Active": false, "Date": "\/Date(1759660800000)\/" } },
+            { "ProductID": 320, "Name": "Chainring Bolts", "ProductNumber": "CB-2903", "Category": { "ID": 2, "Name": "Electronics", "Active": false, "Date": "\/Date(1859660800000)\/" } }
+       ];
+
+       $(function () {
+           $("#grid").igGrid({
+               columns: [
+                   { headerText: "Product ID", key: "ProductID", dataType: "number" },
+                   { headerText: "Product Name", key: "Name", dataType: "string" },
+                   { headerText: "Product Number", key: "ProductNumber", dataType: "string" }
+               ],
+               width: "500px",
+               dataSource: products
+           });
+       });
+</script>*@
+
+@*<script> 
+    debugger;
+
+    var products = [];
+    products[0] = { "ProductID": 1, "Name": "Adjustable Race", "ProductNumber": "AR-5381" };
+    products[1] = { "ProductID": 2, "Name": "Bearing Ball", "ProductNumber": "BA-8327" };
+    products[2] = { "ProductID": 3, "Name": "BB Ball Bearing", "ProductNumber": "BE-2349" };
+    products[3] = { "ProductID": 4, "Name": "Headset Ball Bearings", "ProductNumber": "BE-2908" };
+    products[4] = { "ProductID": 316, "Name": "Blade", "ProductNumber": "BL-2036" };
+    products[5] = { "ProductID": 317, "Name": "LL Crankarm", "ProductNumber": "CA-5965" };
+    products[6] = { "ProductID": 318, "Name": "ML Crankarm", "ProductNumber": "CA-6738" };
+    products[7] = { "ProductID": 319, "Name": "HL Crankarm", "ProductNumber": "CA-7457" };
+    products[8] = { "ProductID": 320, "Name": "Chainring Bolts", "ProductNumber": "CB-2903" };
+    products[9] = { "ProductID": 321, "Name": "Chainring Nut", "ProductNumber": "CN-6137" };
+
+
+    $(function () {
+
+        alert('calling');
+
+        $("#grid1").igGrid({
+            
+            columns: [
+                { headerText: "Product ID", key: "ProductID", dataType: "number" },
+                { headerText: "Product Name", key: "Name", dataType: "string" },
+                { headerText: "Product Number", key: "ProductNumber", dataType: "string" },
+            ],
+            width: '500px',
+            dataSource: products
+        });
+    });
+
+</script>*@
+
+@*<table id=”grid1”></table>*@
+
+
+
+@*<div class="row clsImg" style="display:none">
+    <div class="col-md-12 form-group">
+        <div class="grid" style="overflow-x:auto; min-width:100%; display:block;">
+            @(
+
+ Html.Kendo().Grid(Model.LstStudentDetails)
+                 .Name("Kendo_Quotation_Img_Data")
+
+                     .Columns(
+                                column =>
+                                {
+                                    column.Bound(e => e.FirstName).Title("Student Name").ClientTemplate("<a href='javascript: void(0);' onclick=\"return fn_QuotationList_PEN('#=FirstName#');\">#= FirstName #</a>").HtmlAttributes(new { @class = "k-link" });
+                                    //column.Bound(e => e.PropStudentDetails.MiddleName).Title("Middle ame");
+                                    //column.Bound(e => e.PropStudentDetails.LastName).Title("Last Name");
+                                    //column.Bound(e => e.PropStudentDetails.ParentName).Title("Parent Name");
+                                    //column.Bound(e => e.PropStudentDetails.ParentMobile).Title("Contact No");
+                                    //column.Bound(e => e.PropStudentDetails.Gender).Title("Gender").ClientTemplate("# if(Gender == 'M') {# Male #} else {# Female #} #");
+                                    //column.Bound(e => e.PropStudentDetails.Address).Title("Address");
+                                    column.Bound(e => e.StudentId).Title("StudentId");
+
+                                }
+                        )
+                     .DataSource(datasource => datasource.Ajax())
+             .Events(e => e.DataBound("dataBound"))
+
+
+
+
+            )
+        </div>
+    </div>
+</div>*@
+
+
+@*<div class="grid" style="overflow-x:auto;">
+
+    @(Html.Kendo().Grid<RohiniTravels.Web.Models.Student>()
+                         .Name("QuotationList_Pending")
+                     .Columns(
+                                column =>
+                                {
+                                    column.Bound(e => e.PropStudentDetails.FirstName).Title("Student Name").ClientTemplate("<a href='javascript: void(0);' onclick=\"return fn_QuotationList_PEN('#=FirstName#');\">#= FirstName #</a>").HtmlAttributes(new { @class = "k-link" });
+                                    column.Bound(e => e.PropStudentDetails.MiddleName).Title("Middle ame");
+                                    column.Bound(e => e.PropStudentDetails.LastName).Title("Last Name");
+                                    column.Bound(e => e.PropStudentDetails.ParentName).Title("Parent Name");
+                                    column.Bound(e => e.PropStudentDetails.ParentMobile).Title("Contact No");
+                                    column.Bound(e => e.PropStudentDetails.Gender).Title("Gender").ClientTemplate("# if(Gender == 'M') {# Male #} else {# Female #} #");
+                                    column.Bound(e => e.PropStudentDetails.Address).Title("Address");
+                                    //column.Bound(e => e.StudentId).Title("StudentId");
+
+                                }
+                        )
+                     .DataSource(datasource => datasource.Ajax()
+                                             //.Model(models => models.Id(Ab => Ab.RMT_ID))
+                                             .Read(read => read.Action("GetPenStudRegData", "Admin"))
+                     .PageSize(20)
+                     )
+                     .Sortable()
+                     .Selectable()
+
+            .Filterable()
+            .Pageable()
+
+            .Reorderable(recorder => recorder.Columns(true))
+
+
+
+    )
+</div>*@

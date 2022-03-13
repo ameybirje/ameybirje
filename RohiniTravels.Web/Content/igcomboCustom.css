@@ -1,0 +1,13 @@
+﻿.ui-igcombo-wrapper {
+    width: 100% !important;
+    height: 35px !important;
+    font-family: 'Open Sans',sans-serif !important;
+}
+
+.ui-igcombo-hidden-field {
+    font-family: 'Open Sans',sans-serif !important;
+}
+
+input.ui-igcombo-field {
+    font-family: 'Open Sans',sans-serif !important;
+}

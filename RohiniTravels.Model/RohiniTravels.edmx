@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RohiniTravelsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="InstituteMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Type" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="ServicesMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StudentFeesTransactionDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="StudentServiceId" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="PendingAmount" Type="money" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="Active" Type="nchar" MaxLength="10" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsReceived" Type="bit" />
+          <Property Name="PaymentId" Type="int" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="Month" Type="varchar" MaxLength="50" />
+          <Property Name="Year" Type="int" />
+          <Property Name="FeesDate" Type="date" />
+        </EntityType>
+        <EntityType Name="StudentMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegistrationId" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="MobNo" Type="varchar" MaxLength="15" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="AlternetNo" Type="varchar" MaxLength="15" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Pincode" Type="numeric" Precision="7" Scale="0" />
+          <Property Name="ProfilePic" Type="varbinary(max)" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="5" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="OutstandingAmt" Type="money" />
+          <Property Name="Username" Type="varchar" MaxLength="25" />
+          <Property Name="Password" Type="varchar" MaxLength="25" />
+          <Property Name="ParentName" Type="varchar" MaxLength="200" />
+          <Property Name="Standard" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Function Name="PROC_GET_STUD_REG_PENDING_LST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="RohiniTravelsModelStoreContainer">
+          <EntitySet Name="InstituteMaster" EntityType="Self.InstituteMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicesMaster" EntityType="Self.ServicesMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentFeesTransactionDetails" EntityType="Self.StudentFeesTransactionDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentMaster" EntityType="Self.StudentMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RohiniTravelsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RohiniTravelsEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="PROC_GET_STUD_REG_PENDING_LST" ReturnType="Collection(RohiniTravelsModel.PROC_GET_STUD_REG_PENDING_LST_Result)" />
+          <EntitySet Name="StudentFeesTransactionDetails" EntityType="RohiniTravelsModel.StudentFeesTransactionDetail" />
+          <EntitySet Name="StudentMasters" EntityType="RohiniTravelsModel.StudentMaster" />
+          <EntitySet Name="InstituteMasters" EntityType="RohiniTravelsModel.InstituteMaster" />
+          <EntitySet Name="ServicesMasters" EntityType="RohiniTravelsModel.ServicesMaster" />
+        </EntityContainer>
+        <ComplexType Name="PROC_GET_STUD_REG_PENDING_LST_Result">
+          <Property Type="Int32" Name="RMT_ID" Nullable="false" />
+          <Property Type="String" Name="RMT_STUD_FIRST_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RMT_STUD_MIDDLE_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RMT_STUD_LAST_NAME" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RMT_PARENT_NAME" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="RMT_PARENT_MOB" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="RMT_STUD_SCHOOL_NAME" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SER_SERVICE" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="RSDT_SER_START_DATE" Nullable="true" />
+          <Property Type="String" Name="RSDT_PICKUP_LOCATION" Nullable="true" />
+          <Property Type="String" Name="RSDT_DROP_LOCATION" Nullable="true" />
+          <Property Type="String" Name="RSDT_JOURNY_TYPE" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="FMT_FEES" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="RSDT_PICKUP_LOCATION1" Nullable="true" />
+          <Property Type="String" Name="RSDT_DROP_LOCATION1" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="StudentFeesTransactionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" />
+          <Property Name="StudentServiceId" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PendingAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="Active" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ModifyBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsReceived" Type="Boolean" />
+          <Property Name="PaymentId" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="FeesDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="StudentMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegistrationId" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AlternetNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pincode" Type="Decimal" Precision="7" Scale="0" />
+          <Property Name="ProfilePic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="BloodGroup" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OutstandingAmt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ParentName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Standard" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InstituteMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ServicesMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RohiniTravelsModelStoreContainer" CdmEntityContainer="RohiniTravelsEntities" >
+          <FunctionImportMapping FunctionImportName="PROC_GET_STUD_REG_PENDING_LST" FunctionName="RohiniTravelsModel.Store.PROC_GET_STUD_REG_PENDING_LST">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RohiniTravelsModel.PROC_GET_STUD_REG_PENDING_LST_Result">
+                <ScalarProperty Name="RMT_ID" ColumnName="RMT_ID" />
+                <ScalarProperty Name="RMT_STUD_FIRST_NAME" ColumnName="RMT_STUD_FIRST_NAME" />
+                <ScalarProperty Name="RMT_STUD_MIDDLE_NAME" ColumnName="RMT_STUD_MIDDLE_NAME" />
+                <ScalarProperty Name="RMT_STUD_LAST_NAME" ColumnName="RMT_STUD_LAST_NAME" />
+                <ScalarProperty Name="RMT_PARENT_NAME" ColumnName="RMT_PARENT_NAME" />
+                <ScalarProperty Name="RMT_PARENT_MOB" ColumnName="RMT_PARENT_MOB" />
+                <ScalarProperty Name="RMT_STUD_SCHOOL_NAME" ColumnName="RMT_STUD_SCHOOL_NAME" />
+                <ScalarProperty Name="SER_SERVICE" ColumnName="SER_SERVICE" />
+                <ScalarProperty Name="RSDT_SER_START_DATE" ColumnName="RSDT_SER_START_DATE" />
+                <ScalarProperty Name="RSDT_PICKUP_LOCATION" ColumnName="RSDT_PICKUP_LOCATION" />
+                <ScalarProperty Name="RSDT_DROP_LOCATION" ColumnName="RSDT_DROP_LOCATION" />
+                <ScalarProperty Name="RSDT_JOURNY_TYPE" ColumnName="RSDT_JOURNY_TYPE" />
+                <ScalarProperty Name="FMT_FEES" ColumnName="FMT_FEES" />
+                <ScalarProperty Name="RSDT_PICKUP_LOCATION1" ColumnName="RSDT_PICKUP_LOCATION1" />
+                <ScalarProperty Name="RSDT_DROP_LOCATION1" ColumnName="RSDT_DROP_LOCATION1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="StudentFeesTransactionDetails">
+            <EntityTypeMapping TypeName="RohiniTravelsModel.StudentFeesTransactionDetail">
+              <MappingFragment StoreEntitySet="StudentFeesTransactionDetails">
+                <ScalarProperty Name="FeesDate" ColumnName="FeesDate" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PendingAmount" ColumnName="PendingAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="StudentServiceId" ColumnName="StudentServiceId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentMasters">
+            <EntityTypeMapping TypeName="RohiniTravelsModel.StudentMaster">
+              <MappingFragment StoreEntitySet="StudentMaster">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Standard" ColumnName="Standard" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="OutstandingAmt" ColumnName="OutstandingAmt" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AlternetNo" ColumnName="AlternetNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MobNo" ColumnName="MobNo" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="RegistrationId" ColumnName="RegistrationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstituteMasters">
+            <EntityTypeMapping TypeName="RohiniTravelsModel.InstituteMaster">
+              <MappingFragment StoreEntitySet="InstituteMaster">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicesMasters">
+            <EntityTypeMapping TypeName="RohiniTravelsModel.ServicesMaster">
+              <MappingFragment StoreEntitySet="ServicesMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
