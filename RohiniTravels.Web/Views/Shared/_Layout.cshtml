@@ -1,68 +1,58 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+﻿    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
    
-    @Scripts.Render("~/bundles/jquery")
-    <script src="~/Scripts/jquery-ui.js"></script>
-    <link href="~/Content/infragistics.css.css" rel="stylesheet" />
-    <link href="~/Content/infragistics.theme.css.css" rel="stylesheet" />
+        @Scripts.Render("~/bundles/jquery")
+        <script src="~/Scripts/jquery-ui.js"></script>
+        <link href="~/Content/infragistics.css.css" rel="stylesheet" />
+        <link href="~/Content/infragistics.theme.css.css" rel="stylesheet" />
 
-    <script src="~/Scripts/infragistics.core.js.js"></script>
-    <script src="~/Scripts/infragistics.lob.js.js"></script>
-    @*@Styles.Render("~/bundles/igcombocss")*@
-    @Scripts.Render("~/bundles/modernizr")
+        <script src="~/Scripts/infragistics.core.js.js"></script>
+        <script src="~/Scripts/infragistics.lob.js.js"></script>
+
+        @Scripts.Render("~/bundles/modernizr")
     
-    @Scripts.Render("~/bundles/bootstrap")
-    @*@Scripts.Render("~/bundles/igcomboscript")*@
+        @Scripts.Render("~/bundles/bootstrap")
+
+        @RenderSection("scripts", required: false)
+        <script src="~/Scripts/angular.js"></script>
+        <script src="~/Scripts/Common.js"></script>
 
 
-    @RenderSection("scripts", required: false)
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/Common.js"></script>
-    @*<link href="~/Content/kendo/2014.1.318/kendo.common.min.css" rel="stylesheet" />
-    <link href="~/Content/kendo/2014.1.318/kendo.rtl.min.css" rel="stylesheet" />
-    <link href="~/Content/kendo/2014.1.318/kendo.default.min.css" rel="stylesheet" />
-
-
-    <script src="~/Scripts/kendo/2014.1.318/jquery.min.js"></script>
-    <script src="~/Scripts/kendo/2014.1.318/kendo.web.min.js"></script>
-    <script src="~/Scripts/kendo/Kendoall/kendo.aspnetmvc.js"></script>
-    <script src="~/Scripts/kendo/Kendoall/kendo.all.min.js"></script>*@
-
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
 
    
-</body>
-</html>
+    </body>
+    </html>

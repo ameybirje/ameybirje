@@ -1,31 +1,252 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "IndexNew";
+    Layout = "~/Views/Shared/_RohiniTravelsLayout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<section id="home-section" class="hero">
+    <div class="home-slider js-fullheight owl-carousel">
+        <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+                <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                    <div class="video-background">
+                        <div class="video-wrap">
+                            <div id="video">
+                                <video id="bgvid" autoplay loop muted playsinline>
+                                    <source src="../video/video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <h1><b>Welcome to our Rohini Travels</b></h1>
+                        <h3>A Student Transportation Management Tool</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-services-2 bg-light" id="services-section">
+    <div class="container">
+        <div class="row justify-content-center pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated">
+                <h2 class="mb-2">Our Services</h2>
+                <p>Rohini Travels Platform is also 100% adaptable - ready to use for managing Student Transportation</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+                <div class="media block-6 services text-center d-block">
+                    <div class="icon"><span class="flaticon-route"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3"><b>Route Optimisation</b></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 form-group d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+                <div class="media block-6 services text-center d-block">
+                    <div class="icon"><span class="flaticon-timetable"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3"><b>Individual Yearly Schedule</b></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 form-group d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+                <div class="media block-6 services text-center d-block">
+                    <div class="icon"><span class="flaticon-handle"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3"><b>Easy Handling of Changes</b></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+                <div class="media block-6 services text-center d-block">
+                    <div class="icon"><span class="flaticon-computer"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3"><b>Live Fleet Monitoring</b></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 form-group d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+                <div class="media block-6 services text-center d-block">
+                    <div class="icon"><span class="flaticon-statistics"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3"><b>Reporting</b></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 form-group d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+                <div class="media block-6 services text-center d-block">
+                    <div class="icon"><span class="flaticon-active"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3"><b>Personalised Notifications</b></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismody tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-6 col-lg-5 d-flex">
+                <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(../images/about.jpg);">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-7 pl-lg-5 py-5">
+                <div class="py-md-5">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <span class="subheading">Welcome To Our Rohini Travels</span>
+                            <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">We're Functioning for Almost <span class="number" data-number="15">0</span> Years</h2>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+
+<section class="ftco-gallery ftco-section bg-light" id="gallery-section">
+    <div class="container-fluid px-4">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h3 class="subheading">Gallery</h3>
+                <h2 class="mb-1">See the latest photos</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3 ftco-animate">
+                <a href="../images/gallery1_big.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../images/gallery1_big.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-instagram"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a href="../images/gallery2_big.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../images/gallery2_big.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-instagram"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a href="../images/gallery3_big.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(../images/gallery3_big.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-instagram"></span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</section>
+
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center mb-1 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Contact</span>
+                <h2 class="mb-4">Contact Me</h2>
+            </div>
+        </div>
+
+        <div class="row block-9">
+            <div class="col-md-7 order-md-last d-flex">
+                <form action="#" class="bg-light p-4 p-md-5 contact-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-md-5 d-flex">
+                <div class="row d-flex contact-info mb-5">
+                    <div class="col-md-12 ftco-animate">
+                        <div class="box p-2 px-3 bg-light d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-map-signs"></span>
+                            </div>
+                            <div>
+                                <h3 class="mb-3">Address</h3>
+                                <p>10/4 Raichand Wadi, Shankar Ghanekar Marge, Dadar (West) Mumbai - 400028</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ftco-animate">
+                        <div class="box p-2 px-3 bg-light d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-phone2"></span>
+                            </div>
+                            <div>
+                                <h3 class="mb-3">Contact Number</h3>
+                                <p><a href="tel://1234567920">+123-456-7890</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ftco-animate">
+                        <div class="box p-2 px-3 bg-light d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-paper-plane"></span>
+                            </div>
+                            <div>
+                                <h3 class="mb-3">Email Address</h3>
+                                <p><a href="mailto:info@yoursite.com">rohinitravel@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ftco-animate">
+                        <div class="box p-2 px-3 bg-light d-flex">
+                            <div class="icon mr-3">
+                                <span class="icon-globe"></span>
+                            </div>
+                            <div>
+                                <h3 class="mb-3">Website</h3>
+                                <p><a href="#">rohinitravels.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
