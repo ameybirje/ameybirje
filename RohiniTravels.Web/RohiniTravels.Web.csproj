@@ -368,7 +368,6 @@
     <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\magnific-popup.css" />
-    <Content Include="Content\Model.css" />
     <Content Include="Content\open-iconic-bootstrap.min.css" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\owl.theme.default.min.css" />
@@ -424,11 +423,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Model.js" />
+    <Content Include="Scripts\jquery.waypoints.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scrollax.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Video\video.mp4" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -470,6 +475,7 @@
     <Content Include="Views\Admin\AcceptRequest.cshtml" />
     <Content Include="Views\Shared\_RohiniTravelsLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

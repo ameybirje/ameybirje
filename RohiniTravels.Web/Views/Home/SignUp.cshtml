@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_RohiniTravelsLayout.cshtml";
+}
+
+<style>
+    .site-navbar-target {
+        -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    }
+</style>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="registration-form">
+    <div class="container-fluid" style="padding:0;">
+        <div class="row d-flex">
+            @*<div class="col-md-6 col-lg-5 d-flex" style="padding:0;">
+                    <div class="video-background">
+                        <div class="video-wrap">
+                            <div id="video">
+                                <video id="bgvid" autoplay loop muted playsinline>
+                                    <source src="../video/video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="col-md-12 registration-form">
+                <div class="row justify-content-start pb-3">
+
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <span class="subheading">It only takes a few seconds to create your account</span>
+                        <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">Registration</h2>
+                        <div class="card">
+                            <div class="card-header-tab card-header">
+                                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                    Student Info
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label>First Name <span class="star">*</span></label>
+                                        <input type="text" class="form-control" id="txtSFName" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label>Middle Name <span class="star">*</span></label>
+                                        <input type="text" class="form-control" id="txtSMName" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label>Last Name <span class="star">*</span></label>
+                                        <input type="text" class="form-control" id="txtSLName" />
+                                    </div>
+
+                                    <div class="col-lg-1 col-md-6 col-sm-6 form-group">
+                                        <label>Standard <span class="star">*</span></label>
+                                        <input type="text" class="form-control" id="txtSLName" />
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-6 col-sm-6 form-group">
+                                        <label>Gender</label><br />
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <label for="male">Male</label>&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" name="gender" value="female">
+                                        <label for="female">Female</label>
+                                    </div>
+
+
+
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label>Address 1</label>
+                                        <input type="text" class="form-control" id="txtAddress1" maxlength="50" />
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label> Address 2</label>
+                                        <input type="text" class="form-control" id="txtAddress2" maxlength="50" />
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6 form-group">
+                                        <label>Pincode</label>
+                                        <input type="text" class="form-control" id="txtPincode" />
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+                                        <label> Pickup Location </label>
+                                        <input type="text" class="form-control" id="txtPickupLocation" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header-tab card-header">
+                                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                    Guardian Info
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" id="txtGuardianName" />
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6 form-group">
+                                        <label>Relation with Student</label>
+                                        <input type="text" class="form-control" id="txtGuardianRelation" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 form-group" style="padding-right:5px; padding-left:5px">
+                                                <label>Mobile No</label>
+                                                <input type="text" class="form-control" id="txtMobNo" />
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 form-group" style="padding-right:0px; padding-left:19px">
+                                                <label>Alternet No</label>
+                                                <input type="text" class="form-control" id="txtAlternetNo" />
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label>Email Address</label>
+                                        <input type="text" class="form-control" id="txtEmail" />
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header-tab card-header">
+                                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                    Services Details
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 col-sm-6 form-group">
+                                        <label>Service</label>
+                                        <input type="text" class="form-control" id="ddlService" />
+
+                                    </div>
+                                    <div class="col-lg-5 col-md-6 col-sm-6 form-group">
+                                        <label>Institude</label>
+                                        <input type="text" class="form-control" id="ddlInstitude" />
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-6 col-sm-6 form-group">
+                                        <label>Institute From Time</label>
+                                        <input type="text" class="form-control" id="txtFTime" />
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6 form-group">
+                                        <label>Institute To Time</label>
+                                        <input type="text" class="form-control" id="txtTTime" />
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header-tab card-header">
+                                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                                    User Account Details
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+                                        <label>User Name</label>
+                                        <input type="text" class="form-control" disabled id="txtUserName" />
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+                                        <label>Password</label>
+                                        <input type="text" class="form-control" id="txtPassword" />
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-6 form-group">
+                                        <label>Confirmed Password</label>
+                                        <input type="text" class="form-control" id="txtConfirmedPwd" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 col-12 text-center">
+                                <input type="button" class="btn btn-primary py-3 px-5" value="Back" id="btnBack" />&nbsp;&nbsp;&nbsp;
+                                <input type="button" class="btn btn-primary py-3 px-5" value="Save" id="btnSave" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
