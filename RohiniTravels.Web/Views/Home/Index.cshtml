@@ -6,6 +6,8 @@
 
 <link href="~/Content/login.css" rel="stylesheet" />
 
+<script src="~/Scripts/Client/Home/Index.js"></script>
+
 <section id="home-section" class="hero">
     <div class="home-slider js-fullheight owl-carousel">
         <div class="slider-item js-fullheight">
@@ -30,6 +32,7 @@
         </div>
     </div>
 </section>
+
 <section class="ftco-section ftco-services-2 bg-light" id="services-section">
     <div class="container">
         <div class="row justify-content-center pb-3">
@@ -257,19 +260,158 @@
     <div id="map" class="bg-white"></div>
 </section>
 
+@*<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="width:85%">
+                <div class="login">
+                    <div class="wrap-login100">
+                        <div class="login100-form validate-form">
+                            <div class="form-group" style="text-align: center;margin-bottom: 30px; margin-left:-10px"><img src="../images/rohini-travels.png" style="width: 165px;"></div>
+                            <span class="login100-form-title">
+                                Login
+                            </span>
+
+                            <div class="form-group first">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" placeholder="your-email@gmail.com" id="username">
+                            </div>
+                            <div class="form-group last mb-3">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" placeholder="Your Password" id="password">
+                            </div>
+
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    Login
+                                </button>
+                            </div>
+
+                            <div class="text-center p-t-12">
+                                <span class="txt1">
+                                    Forgot
+                                </span>
+                                <a class="txt2" href="#">
+                                    Username / Password?
+                                </a>
+                            </div>
+
+                            <div class="text-center createAccountText">
+                                <span id="spnCreateAccount" class="txt2" data-toggle="modal" data-target="#signUpModel">
+                                    Create your Account
+                                    <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+
+<div class="modal fade" id="signUpModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="width:90%">
+            <div class="login">
+                <div class="wrap-login100 signUpBox">
+                    <div class="login100-form validate-form">
+                        <div class="form-group" style="text-align: center;margin-bottom: 10px; margin-left:-10px"><img src="../images/rohini-travels.png" style="width: 120px;"></div>
+                        <span class="SignUp-form-title">
+                            Create an account
+                        </span>
+
+                        <div class="row">
+                            <div class="col-md-6 removePadding">
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="text" name="FirstName" id="txtFirstName" maxlength="50" placeholder="First Name">
+                                    <span id="spnFirstName" class="errorMsgSpanSignUp"> </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 removePadding">
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="text" id="txtLastName" name="LastName" maxlength="50" placeholder="Last Name">
+                                    <span id="spnLastName" class="errorMsgSpanSignUp"> </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 removePadding">
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="text" id="txtMobileNumber" maxlength="10" name="MobileNumber" placeholder="Mobile Number">
+                                    <span id="spnMobileNumber" class="errorMsgSpanSignUp"> </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 removePadding">
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="text" name="Email" id="txtEmail" maxlength="100" placeholder="Email">
+                                    <span id="spnEmail" class="errorMsgSpanSignUp"> </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 removePadding">
+                                <div class="wrap-input100 validate-input">
+                                    <input class="input100" type="password" id="txtSignUpPassword" maxlength="10" name="Password" placeholder="Password">
+                                    <span id="spnSignUpPassword" class="errorMsgSpanSignUp"> </span>
+                                    <div class="PwdValidationMsg">
+                                        <span>Must contain at least 8 character.</span><br />
+                                        <span>Must contain at least 1 uppercase letter.</span><br />
+                                        <span>Must contain at least 1 lowercase letter.</span><br />
+                                        <span>Must contain at least 1 number.</span><br />
+                                        <span>Must contain at least 1 special character.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="container-login100-form-btn">
+                            <button id="btnSubmitSignUp" class="login100-form-btn">
+                                Submit
+                            </button>
+                        </div>
+
+                        <div class="text-center haveAccountText">
+                            <span id="spnHaveAccont" data-toggle="modal" data-target="#exampleModalCenter">
+                                Have already account
+                                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="width:85%">
             <div class="login">
-                <div class="wrap-login100">
-                    <form class="login100-form validate-form">
+                <div class="wrap-login100 signInBox">
+                    <div class="login100-form validate-form">
                         <div class="form-group" style="text-align: center;margin-bottom: 30px; margin-left:-10px"><img src="../images/rohini-travels.png" style="width: 165px;"></div>
                         <span class="login100-form-title">
-                            Student Login
+                            Login
                         </span>
 
-                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                            <input class="input100" type="text" name="email" placeholder="Email">
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100 is-invalid" type="text" id="txtUserName" maxlength="10" name="UserName" placeholder="Mobile Number">
+                            <span id="spnUserName" class="errorMsgSpan"> </span>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -277,7 +419,8 @@
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate="Password is required">
-                            <input class="input100" type="password" name="pass" placeholder="Password">
+                            <input class="input100" type="password" id="txtPassword" maxlength="8" name="pass" placeholder="Password">
+                            <span id="spnPassword" class="errorMsgSpan">  </span>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
@@ -285,7 +428,7 @@
                         </div>
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
+                            <button id="btnLogin" class="login100-form-btn">
                                 Login
                             </button>
                         </div>
@@ -294,21 +437,21 @@
                             <span class="txt1">
                                 Forgot
                             </span>
-                            <a class="txt2" href="#">
-                                Username / Password?
+                            <a id="achForgotPwd" class="txt2" href="#">
+                                Password?
                             </a>
                         </div>
 
-                        <div class="text-center p-t-136">
-                            <a class="txt2" href="../Registration/index">
+                        <div class="text-center createAccountText">
+                            <span id="spnCreateAccount" class="txt2" data-toggle="modal" data-target="#signUpModel">
                                 Create your Account
                                 <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                            </a>
+                            </span>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

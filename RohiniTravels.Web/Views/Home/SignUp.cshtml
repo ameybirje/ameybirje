@@ -16,6 +16,32 @@
 <br />
 <br />
 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+       var s =  $('#liIndex, #liOurService, #liAboutUs, #liGallery, #liContactUs').find('a').attr('href')
+
+
+       
+
+        //s.setAttribute('href', '#')
+
+        $('#liIndex, #liOurService, #liAboutUs, #liGallery, #liContactUs ').click(function (event) {
+            debugger;
+            var id = $(this).attr('Id')
+           
+            sessionStorage.setItem('div', 'liOurService');
+
+            window.location = '/Home/Index#gallery-section'
+
+        })
+
+    })
+
+</script>
+
 <section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="registration-form">
     <div class="container-fluid" style="padding:0;">
         <div class="row d-flex">

@@ -2,6 +2,10 @@
 using System.Linq;
 using System.Web.Mvc;
 using RohiniTravels.Web.Models;
+using RohiniTravels.Web.ViewModel;
+using System.Collections.Generic;
+using RohiniTravels.BAL.Models;
+using RohiniTravels.Web.Helpers;
 
 namespace RohiniTravels.Web.Controllers
 {
@@ -40,13 +44,34 @@ namespace RohiniTravels.Web.Controllers
         }
 
 
-        public ActionResult SignUp()
+        [HttpPost]
+        [AjaxValidateAntiForgeryToken]
+        public JsonResult SignUp(SignUpVM model)
         {
-            
 
+
+            List<GenericValuesString> objErrors = null; 
+
+            if (ModelState.IsValid)
+            {
+
+            }
+            else
+            {
+                 objErrors  =  GetModelStateErrors();
+                
+            }
+
+
+            return Json(new { ValidationError = objErrors, 
+                            success = objErrors != null ? false :true  });
+        }
+
+        public ActionResult ForgotPassword()
+        {
             return View();
         }
-        
+
 
     }
 }

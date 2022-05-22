@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
+using RohiniTravels.BAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,29 @@ namespace RohiniTravels.Web.Controllers
         }
 
 
-     
+        public List<GenericValuesString> GetModelStateErrors()
+        {
+            //ViewData.ModelState.Keys
+            //ViewDataDictionary mdt
+
+            List<GenericValuesString> lst = new List<GenericValuesString>();
+
+            foreach (var modelStateKey in ViewData.ModelState.Keys)
+            {
+                var modelStateVal = ViewData.ModelState[modelStateKey];
+                foreach (var error in modelStateVal.Errors)
+                {
+                    var key = modelStateKey;
+                    var errorMessage = error.ErrorMessage;
+                    var exception = error.Exception;
+
+                    lst.Add(new GenericValuesString() { Id = key, Value = errorMessage });
+                }
+            }
+
+
+            return lst;
+        }
 
        
     }

@@ -187,9 +187,19 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-      padding: 30px 50px;
+/*      padding: 30px 50px;*/
     box-shadow: 0 3px 17px rgba(8,7,7,0.05);
 }
+
+
+.signInBox {
+	padding: 30px 42px;
+}
+
+.signUpBox {
+	padding: 16px 26px;
+}
+
 
 /*------------------------------------------------------------------
 [  ]*/
@@ -467,4 +477,63 @@ iframe {
     visibility: visible;
     opacity: 1;
   }
+}
+
+
+.SignUp-form-title {
+	font-size: 24px;
+	color: #333333;
+	line-height: 1.2;
+	text-align: center;
+	width: 100%;
+	display: block;
+	padding-bottom: 20px;
+	font-weight: 500;
+}
+
+.haveAccountText{
+	padding-top:10px;
+	cursor:pointer;	
+
+}
+
+.haveAccountText :hover {
+	color: #e82c42
+}
+
+.createAccountText {
+	cursor: pointer;
+	padding-top:18px
+}
+
+.createAccountText :hover {
+		color: #e82c42
+}
+
+.errorMsgSpan {
+	color: red;
+	padding-left: 27px;
+	display: none;
+	font-size: smaller
+}
+
+.removePadding{
+	padding-left:0px !important
+}
+
+
+.errorMsgSpanSignUp {
+	color: red;
+	padding-left: 18px;
+	display: none;
+	font-size:smaller
+}
+
+.PwdValidationMsg {
+	color: red;
+	font-size: smaller;
+	line-height:1.2;
+	padding-left:20px;
+	margin-top:4px;
+	display:none
 }
