@@ -81,10 +81,6 @@ var WebxCommonFN = {
     },
 
 
-    ValidateMobileNumber: function (control) {
-        var containsAlphabets = MobileNumberRegex.test($(control).val());
-        return containsAlphabets;
-    },
 
     ValidatePassword: function (control) {
         return PasswrodRegex.test($(control).val());

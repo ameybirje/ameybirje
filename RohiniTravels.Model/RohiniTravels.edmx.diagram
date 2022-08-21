@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="RohiniTravelsModel.StudentMaster" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="RohiniTravelsModel.InstituteMaster" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="RohiniTravelsModel.ServicesMaster" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="RohiniTravelsModel.RegistrationMaster" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

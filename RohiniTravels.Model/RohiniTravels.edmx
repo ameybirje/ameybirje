@@ -15,6 +15,19 @@
           <Property Name="Address" Type="varchar" MaxLength="500" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="RegistrationMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="ServicesMaster">
           <Key>
             <PropertyRef Name="Id" />
@@ -76,6 +89,7 @@
         <Function Name="PROC_GET_STUD_REG_PENDING_LST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="RohiniTravelsModelStoreContainer">
           <EntitySet Name="InstituteMaster" EntityType="Self.InstituteMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationMaster" EntityType="Self.RegistrationMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicesMaster" EntityType="Self.ServicesMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentFeesTransactionDetails" EntityType="Self.StudentFeesTransactionDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentMaster" EntityType="Self.StudentMaster" Schema="dbo" store:Type="Tables" />
@@ -90,6 +104,7 @@
           <EntitySet Name="StudentMasters" EntityType="RohiniTravelsModel.StudentMaster" />
           <EntitySet Name="InstituteMasters" EntityType="RohiniTravelsModel.InstituteMaster" />
           <EntitySet Name="ServicesMasters" EntityType="RohiniTravelsModel.ServicesMaster" />
+          <EntitySet Name="RegistrationMasters" EntityType="RohiniTravelsModel.RegistrationMaster" />
         </EntityContainer>
         <ComplexType Name="PROC_GET_STUD_REG_PENDING_LST_Result">
           <Property Type="Int32" Name="RMT_ID" Nullable="false" />
@@ -174,6 +189,19 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RegistrationMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
@@ -271,6 +299,20 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationMasters">
+            <EntityTypeMapping TypeName="RohiniTravelsModel.RegistrationMaster">
+              <MappingFragment StoreEntitySet="RegistrationMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

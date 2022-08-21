@@ -31,6 +31,7 @@ namespace RohiniTravels.Model
         public virtual DbSet<StudentMaster> StudentMasters { get; set; }
         public virtual DbSet<InstituteMaster> InstituteMasters { get; set; }
         public virtual DbSet<ServicesMaster> ServicesMasters { get; set; }
+        public virtual DbSet<RegistrationMaster> RegistrationMasters { get; set; }
     
         public virtual ObjectResult<PROC_GET_STUD_REG_PENDING_LST_Result> PROC_GET_STUD_REG_PENDING_LST()
         {

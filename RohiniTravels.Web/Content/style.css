@@ -1680,7 +1680,9 @@ select.form-control:focus::-ms-value {
   color: #212529;
   background-color: transparent;
   border: solid transparent;
-  border-width: 1px 0; }
+  border-width: 1px 0;
+
+}
   .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
     padding-right: 0;
     padding-left: 0; }
@@ -8612,10 +8614,12 @@ h1, h2, h3, h4, h5,
   box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09); }
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
-  .btn.btn-primary {
-    background: #f89a43;
-    border: 1px solid #f89a43 !important;
-    color: #fff !important; }
+    .btn.btn-primary {
+        background: #f89a43;
+        border: 1px solid #f89a43 !important;
+        color: #fff !important;
+        width: 145px;
+    }
     .btn.btn-primary:hover {
       border: 1px solid #eb3138;
       background: #eb3138;
@@ -8997,7 +9001,8 @@ h1, h2, h3, h4, h5,
 }
 
   .form-control:focus, .form-control:active {
-    border-color: #000000; }
+    border-color: #000000;
+  }
 
 textarea.form-control {
   height: inherit !important; }
@@ -9805,7 +9810,7 @@ textarea.form-control {
 .registration {
     margin-top: 100px;
 }
-.registration-form .form-control {
+.application-form .form-control {
     height: 35px !important;
     background: #fff !important;
     color: #000000 !important;
@@ -9814,11 +9819,11 @@ textarea.form-control {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
-    .registration-form .form-control.disabled {
+    .application-form .form-control.disabled {
         background-color: #eee !important;
     }
-.registration-form .form-control:focus, .registration-form .form-control:active {
-    border-color: #ced4da;
-}
+    .application-form .form-control:focus, .application-form .form-control:active {
+        border-color: #ced4da !important;
+    }
 
 /*Radio button & checkbox button*/

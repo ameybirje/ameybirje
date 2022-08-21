@@ -1,24 +1,195 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+.heading {
+    color: black;
+    text-align: center;
+    margin-top: -52px;
+}
+.common-header {
+    height: 90px
+}
+.menu-alignment {
+    margin-top: -23px;
 }
 
+
+.inputnew {
+    border: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    border: 1px solid #b7b7b7 !important;
+    width: 100%;
+    font-size: 15px;
+}
+.rowstyle {
+    height: 77px;
+}
+/*ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;*/
+/*    background-color: #333;*/
+/*}
+
+li {
+    float: left;
+}
+
+    li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover {
+            background-color: #111;
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*///////////////////////////////////////////////////////////////////////////////*/
+/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
+/*.dl-horizontal dt {
     white-space: normal;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+/*------------------------Aarti created below css from 25/06/2022---------------------*/
+/*.inner-ftco-footer {
+    font-size: 16px;
+    background: #000000;
+    padding: 7em 0;
+    z-index: 0;
+    position: relative;
 }
+
+    .inner-ftco-footer .inner-ftco-footer-logo {
+        text-transform: uppercase;
+        letter-spacing: .1em;
+    }
+
+    .inner-ftco-footer .inner-ftco-footer-widget h2 {
+        font-weight: normal;
+        color: #fff;
+        margin-bottom: 40px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+        .inner-ftco-footer .inner-ftco-footer-widget h2 span a {
+            color: #f89a43;
+            text-transform: uppercase;
+        }
+
+    .inner-ftco-footer .inner-ftco-footer-widget ul li {
+        margin-bottom: 10px;
+    }
+
+        .inner-ftco-footer .inner-ftco-footer-widget ul li a {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+            .inner-ftco-footer .inner-ftco-footer-widget ul li a span {
+                color: rgba(255, 255, 255, 0.6);
+            }
+
+    .inner-ftco-footer .inner-ftco-footer-widget .btn-primary {
+        background: #fff !important;
+        border: 2px solid #fff !important;
+    }
+
+        .inner-ftco-footer .inner-ftco-footer-widget .btn-primary:hover {
+            background: #fff;
+            border: 2px solid #fff !important;
+        }
+
+    .inner-ftco-footer p {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .inner-ftco-footer a {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+        .inner-ftco-footer a:hover {
+            color: #fff;
+        }
+
+    .inner-ftco-footer .ftco-heading-2 {
+        font-size: 17px;
+        font-weight: 400;
+        color: #000000;
+    }
+
+.inner-ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+    .inner-ftco-footer-social li a {
+        height: 50px;
+        width: 50px;
+        display: block;
+        float: left;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        position: relative;
+    }
+
+        .inner-ftco-footer-social li a span {
+            position: absolute;
+            font-size: 26px;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .inner-ftco-footer-social li a:hover {
+            color: #fff;
+        }
+fixed-navbar {
+    transition: .3s all ease-out;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background: #fff !important;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+    padding: 0 15px;
+    z-index: 3;
+}*/

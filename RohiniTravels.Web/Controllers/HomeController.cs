@@ -6,71 +6,142 @@ using RohiniTravels.Web.ViewModel;
 using System.Collections.Generic;
 using RohiniTravels.BAL.Models;
 using RohiniTravels.Web.Helpers;
+using RohiniTravels.BAL.Process;
+using System;
 
 namespace RohiniTravels.Web.Controllers
 {
     public class HomeController : BaseController
     {
-
-        public HomeController(IUnityContainer container) : base(container) { }
-
+        HomeProcess _HomeProcess;
+        public HomeController(IUnityContainer container) : base(container) 
+        {
+            _HomeProcess = container.Resolve<HomeProcess>();
+        }
+        #region Login
         public ActionResult Index()
         {
-           // var Result = repository.SetReadOnly<REGISTRATION_MST_T>().ToList();
+            return View();
+        }
+        [HttpPost]
+        [AjaxValidateAntiForgeryToken]
+        public JsonResult CheckLoginDetails(string Username,string Password)
+        {
+            var LoginStatus = _HomeProcess.CheckLogin(Username, Password);
 
+            return Json(new
+            {
+                success = true,
+                LoginStatus
+            });
+        }
+        #endregion
+        #region SignUp
+        [HttpPost]
+        [AjaxValidateAntiForgeryToken]
+        public JsonResult SignUp(SignUpClass objSignUp)
+        {
+            List<GenericValuesString> objErrors = null;
+
+            if (ModelState.IsValid)
+            {
+                _HomeProcess.SignupDetails(objSignUp);
+            }
+            else
+            {
+                objErrors = GetModelStateErrors();
+            }
+
+
+            return Json(new
+            {
+                ValidationError = objErrors,
+                success = objErrors != null ? false : true
+            });
+        }
+
+        #endregion
+
+        #region ForgotPassword
+        public ActionResult ForgotPassword()
+        {
             return View();
         }
 
-
-        public ActionResult IndexOld()
+        [HttpPost]
+        [AjaxValidateAntiForgeryToken]
+        public JsonResult CheckMobileNo(string MobileNo,string Type)
         {
-            
-
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            string OTPStatus = "";
+            var objRegId= _HomeProcess.GetOTP(MobileNo, Type);
+            //Send OTP on registered mobile number
+            if (objRegId != 0)
+            {
+                Session["RegId"] = Convert.ToInt32(objRegId);
+                OTPStatus = "Success";
+            }
+            return Json(new
+            {
+                success =  true,
+                OTPStatus
+            });
         }
 
 
         [HttpPost]
         [AjaxValidateAntiForgeryToken]
-        public JsonResult SignUp(SignUpVM model)
+        public JsonResult CheckOTP(string OTP, string Type)
         {
-
-
-            List<GenericValuesString> objErrors = null; 
-
-            if (ModelState.IsValid)
+            bool OTPStatus = false;
+            int RegId = Convert.ToInt32(Session["RegId"]);
+            int objId = _HomeProcess.ValidateOTP(OTP, Type, RegId);
+            if (objId != 0)
             {
-
+                OTPStatus =true;
             }
             else
             {
-                 objErrors  =  GetModelStateErrors();
-                
+                OTPStatus =false;
             }
-
-
-            return Json(new { ValidationError = objErrors, 
-                            success = objErrors != null ? false :true  });
+            return Json(new
+            {
+                success = true,
+                OTPStatus
+            });
         }
 
-        public ActionResult ForgotPassword()
+
+        [HttpPost]
+        [AjaxValidateAntiForgeryToken]
+        public JsonResult UpdateNewPassword(string Password)
         {
-            return View();
+          
+            int RegId = Convert.ToInt32(Session["RegId"]);
+            _HomeProcess.UpdatePassword(Password, RegId);
+         
+            return Json(new
+            {
+                success = true
+            });
         }
+
+        [HttpPost]
+        [AjaxValidateAntiForgeryToken]
+        public JsonResult ResendOTP()
+        {
+
+            int RegId = Convert.ToInt32(Session["RegId"]);
+            string objResentOTPStatus = _HomeProcess.ResendOTP(RegId);
+
+            return Json(new
+            {
+                success = true,
+                objResentOTPStatus
+            });
+        }
+        #endregion
+
+
 
 
     }

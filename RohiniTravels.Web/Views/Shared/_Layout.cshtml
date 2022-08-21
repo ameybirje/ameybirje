@@ -1,58 +1,189 @@
-﻿    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - My ASP.NET Application</title>
-        @Styles.Render("~/Content/css")
-   
+﻿@using RohiniTravels.Web.Helpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rohini Travels </title>
+
+    @*<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
         @Scripts.Render("~/bundles/jquery")
-        <script src="~/Scripts/jquery-ui.js"></script>
-        <link href="~/Content/infragistics.css.css" rel="stylesheet" />
-        <link href="~/Content/infragistics.theme.css.css" rel="stylesheet" />
-
-        <script src="~/Scripts/infragistics.core.js.js"></script>
-        <script src="~/Scripts/infragistics.lob.js.js"></script>
-
+        @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
-    
         @Scripts.Render("~/bundles/bootstrap")
-
-        @RenderSection("scripts", required: false)
-        <script src="~/Scripts/angular.js"></script>
-        <script src="~/Scripts/Common.js"></script>
+        @Styles.Render("~/Content/RohiniTravelsCss")
+        @Scripts.Render("~/bundles/RohiniTravelsJs")*@
 
 
-    </head>
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+    @Scripts.Render("~/bundles/jquery")
+
+<script src="~/Scripts/ig/infragistics-2018-2.core.js"></script>
+<script src="~/Scripts/ig/infragistics-2018-2.lob.js"></script>
+<link href="~/Content/ig/infragistics.theme.css" rel="stylesheet" />
+<link href="~/Content/ig/infragistics.css" rel="stylesheet" />
+
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Content/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/animate.css">
+
+    <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Content/aos.css">
+
+    <link rel="stylesheet" href="~/Content/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Content/flaticon.css">
+    <link rel="stylesheet" href="~/Content/icomoon.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/fixed.css">
+    <link rel="stylesheet" href="~/Content/Site.css" />
+
+
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    @* <nav class="navbar navbar-expand-lg" id="ftco-navbar">*@
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar site-navbar-target" id="ftco-navbar">
+        <div class="container col-lg-12 common-header">
+            
+           
+                    <div class="col-lg-3 col-md-3 col-sm-3 form-group text-center mt-4">
+                        <a class="navbar-brand" href="index.html"><img src="~/images/rohini-travels.png"></a>
+                        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="oi oi-menu"></span> Menu
+                        </button>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 form-group menu-alignment">
+                        <div class="collapse navbar-collapse ftco-navbar-light" id="ftco-nav">
+                            <ul class="navbar-nav nav ml-auto">
+                                <li id="liContinueReg" class="nav-item"><a href="/Registration/Index" class="nav-link"><span>Continue Registration</span></a></li>
+                                <li id="liLogout" class="nav-item"><a href="/Home/Index" class="nav-link"><span>Log Out</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+               
+        </div>
+    </nav>
+
+
+
+
+    <div class="bg-light">
+        @RenderBody()
+    </div>
+
+
+    <footer class="inner-ftco-footer"></footer>
+    @*<footer class="ftco-footer ftco-section">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">About <span><a href="index.html">Rohini Travels.</a></span></h2>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-linkedin"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4 ml-md-4">
+                            <h2 class="ftco-heading-2">Links</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#home-section"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+                                <li><a href="#services-section"><span class="icon-long-arrow-right mr-2"></span>Our Services</a></li>
+                                <li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>About Us</a></li>
+                                <li><a href="#gallery-section"><span class="icon-long-arrow-right mr-2"></span>Gallery</a></li>
+                                <li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact Us</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Login</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Registration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Services</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Route Optimisation</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Individual Yearly Schedule</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Easy Handling of Changes</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Live Fleet Monitoring</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Reporting</a></li>
+                                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Personalised Notifications</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Have a Questions?</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">10/4 Raichand Wadi, Shankar Ghanekar Marge, Dadar (West) Mumbai - 400028</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+123-456-7890</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">rohinitravel@gmail.com</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                    @Html.Partial("_LoginPartial")
+                <div class="row">
+                    <div class="col-md-12 text-center">
+
+                        <p>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>
+        </footer>*@
 
-   
-    </body>
-    </html>
+
+
+    <input type="hidden" id="forgeryToken" value="@GetAntiForgeryToken()" />
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/aos.js"></script>
+    <script src="~/Scripts/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/scrollax.min.js"></script>
+    @*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>*@
+    <script src="~/Scripts/google-map.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        @functions{
+            public string GetAntiForgeryToken()
+            {
+                string cookieToken, formToken;
+                AntiForgery.GetTokens(null, out cookieToken, out formToken);
+                return cookieToken + "," + formToken;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

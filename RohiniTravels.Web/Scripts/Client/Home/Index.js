@@ -23,10 +23,11 @@ function Failed(response) {
 function SignUpSuccess(response) {
     //$('.loader-bg').hide();
     if (response.success) {
-        alert('Suc')
+        alert('Congratulations, your account has been created.');
+        ClearSignupField();
     }
     else {
-        alert('false')
+        alert('Registration Failed');
         var validationErrors = response.ValidationError
 
         $.each(validationErrors, function (index,item) {
@@ -93,6 +94,40 @@ function SignUpValidator() {
 
 $(document).ready(function () {
 
+    WebxCommonFN.AttachChangeListener(controls);
+    ClickEvents();
+    PasswordEyeChanges();
+});
+
+function PasswordEyeChanges() {
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#txtSignUpPassword');
+
+    togglePassword.addEventListener('click', function (e) {
+
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    const loginTogglePassword = document.querySelector('#loginTogglePassword');
+    const loginPassword = document.querySelector('#txtPassword');
+
+    loginTogglePassword.addEventListener('click', function (e) {
+
+        // toggle the type attribute
+        const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+        loginPassword.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+}
+
+function ClickEvents()
+{
+
     $('#spnHaveAccont').click(function () {
         $('#signUpModel').modal('toggle');
     })
@@ -101,20 +136,24 @@ $(document).ready(function () {
         $('#exampleModalCenter').modal('toggle');
     })
 
-    $('#txtUserName').focusout(function () {       
-        if ($(this).val() != '' && !WebxCommonFN.ValidateMobileNumber('#txtUserName'))
-            WebxCommonFN.DisplayError('#spnUserName', 'Enter valid mobile number')
-        else if ($(this).val() != '')
-            WebxCommonFN.HideError('#spnUserName')
-        else if ($(this).val() == '')
-            WebxCommonFN.DisplayError('#spnUserName', 'Enter username')
+    $('#txtUserName').focusout(function () {
+        if ($(this).val() != '' && !WebxCommonFN.ValidateMobileNumber('#txtUserName')) {
+            WebxCommonFN.DisplayError('#spnUserName', 'Enter valid mobile number');
+            $("#txtUserName").val("");
+        }
+        else if ($(this).val() != '') {
+            WebxCommonFN.HideError('#spnUserName');
+        }
+        else if ($(this).val() == '') { 
+        WebxCommonFN.DisplayError('#spnUserName', 'Enter username');
+        }
     })
 
-    $('#txtPassword').focusout(function () {   
-         if ($(this).val() != '')
-             WebxCommonFN.HideError('#spnPassword')
+    $('#txtPassword').focusout(function () {
+        if ($(this).val() != '')
+            WebxCommonFN.HideError('#spnPassword')
         else if ($(this).val() == '')
-             WebxCommonFN.DisplayError('#spnPassword', 'Enter password')
+            WebxCommonFN.DisplayError('#spnPassword', 'Enter password')
     })
 
     $('#txtFirstName').focusout(function () {
@@ -167,68 +206,108 @@ $(document).ready(function () {
                 WebxCommonFN.HideError('#spnSignUpPassword')
                 $('.PwdValidationMsg').hide()
             }
-        }       
-    })
-
-    $('#btnLogin').click(function () {
-        
-        var controlsFilled = WebxCommonFN.ValidateEmptyFields(controlsSignIn);
-
-        if (controlsFilled) {
-            alert('Succss');
         }
-
     })
-
-    WebxCommonFN.AttachChangeListener(controls);
-
-
     $('#btnSubmitSignUp').click(function () {
-        
+
         if (!WebxCommonFN.ValidateEmptyFields(controls))
             return false;
 
         if (!SignUpValidator())
             return false;
 
+        var requiredFields = {
+            url: '/Home/SignUp',
+            header: { 'VerificationToken': $("#forgeryToken").val() },
+            data: {
+                'FirstName': $("#txtFirstName").val(),
+                'LastName': $("#txtLastName").val(),
+                'MobileNumber': $("#txtMobileNumber").val(),
+                'EmailAddress': $("#txtEmail").val(),
+                'Password': $("#txtSignUpPassword").val(),
+            },
+            successFunction: SignUpSuccess,
+            errorFunction: Failed
+        }
+        WebxCommonFN.AjaxPostRequest(requiredFields);
+    })
+    $('#achForgotPwd').click(function () {
+    //    var requiredFields = {
+    //        url: '/Home/GenerateOTP',
+    //        header: { 'VerificationToken': $("#forgeryToken").val() },
+    //        data: {
+    //            'Type': 'F'
+    //        },
+    //        successFunction: function () {
+    //            window.location.href = "/Home/ForgotPassword";
+    //        },
+    //        errorFunction: Failed
+    //    }
+    //    WebxCommonFN.AjaxPostRequest(requiredFields);
+    //});
+        
+    window.location.href = "/Home/ForgotPassword";
+        //if ($('#txtUserName').val() == '') {
+        //    $('$spnUserName').text('')
+        //    WebxCommonFN.DisplayError('#spnUserName', 'Enter valid mobile number')
+        //    $("#txtUserName").val("");
+        //}
+        //else if ($('#txtUserName').val() != '') {
+
+        //    if (!WebxCommonFN.ValidateMobileNumber('#txtUserName')) {
+        //        $('$spnUserName').text('')
+        //        WebxCommonFN.DisplayError('#spnUserName', 'Enter valid mobile number')
+        //        $("#txtUserName").val("");
+        //    }
+        //    else {
+        //        alert('Success');
+        //    }
+
+        //}
+});
+    $('#btnLogin').click(function () {
+        debugger;
+        var controlsFilled = WebxCommonFN.ValidateEmptyFields(controlsSignIn);
+
+        if (controlsFilled) {
             var requiredFields = {
-                url: '/Home/SignUp',
+                url: '/Home/CheckLoginDetails',
                 header: { 'VerificationToken': $("#forgeryToken").val() },
                 data: {
-                    'FirstName': $("#txtFirstName").val(),
-                    'LastName': $("#txtLastName").val(),
-                    'MobileNumber': $("#txtMobileNumber").val(),
-                    'Email': $("#txtEmail").val(),
-                    'Password': $("#txtSignUpPassword").val(),
+                    'Username': $("#txtUserName").val(),
+                    'Password': $("#txtPassword").val(),
                 },
-                successFunction: SignUpSuccess,
+                successFunction: LoginSuccess,
                 errorFunction: Failed
             }
-            WebxCommonFN.AjaxPostRequest(requiredFields);        
+            WebxCommonFN.AjaxPostRequest(requiredFields);
+        }
+
     })
 
-
-    $('#achForgotPwd').click(function () {
-      
-        if ($('#txtUserName').val() == '') {
-            $('$spnUserName').text('')
-            WebxCommonFN.DisplayError('#spnUserName', 'Enter valid mobile number')
+}
+function LoginSuccess(response) {
+    if (response.success) {
+        ClearLoginField();
+        if (response.LoginStatus != "Invalid Credentials") {
+            alert("Ok");
         }
-        else if ($('#txtUserName').val() != ''){
-
-            if (!WebxCommonFN.ValidateMobileNumber('#txtUserName')) {
-                $('$spnUserName').text('')
-                WebxCommonFN.DisplayError('#spnUserName', 'Enter valid mobile number')
-            }
-            else {
-                alert('Success');
-            }
-
+        else {
+            alert(response.LoginStatus);
         }
-    })
+    }
 
-
-   
-
-
-})
+}
+function ClearLoginField()
+{
+    $("#txtUserName").val("");
+    $("#txtPassword").val("");
+}
+function ClearSignupField()
+{
+    $("#txtFirstName").val("");
+    $("#txtLastName").val("");
+    $("#txtMobileNumber").val("");
+    $("#txtEmail").val("");
+    $("#txtSignUpPassword").val("");
+}
